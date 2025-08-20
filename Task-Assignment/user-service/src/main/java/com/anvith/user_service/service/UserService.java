@@ -24,10 +24,10 @@ public class UserService {
 
     public User getUserProfile(@RequestHeader("Authorization") String authHeader) {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            System.err.println("Invalid Authorization header: " + authHeader); // Debug log
+            System.err.println("Invalid Authorization header: " + authHeader);
             throw new IllegalArgumentException("Missing or invalid Authorization header");
         }
-        String jwt = authHeader.substring(7).trim(); // Remove "Bearer " and trim spaces
+        String jwt = authHeader.substring(7).trim();
         System.out.println("Extracted JWT: " + jwt); // Debug log
         String email = jwtProvider.getEmailFromJwtToken(jwt);
         User user = userRepository.findByEmail(email);

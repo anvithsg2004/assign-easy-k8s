@@ -40,9 +40,9 @@ public class SubmissionService {
         boolean isAssignedToUser = false;
         List<String> assignedIds = task.getAssignedUserIds();
         if (assignedIds == null || assignedIds.isEmpty()) {
-            isAssignedToUser = true; // Task is open to all users
+            isAssignedToUser = true;
         } else if (assignedIds.contains(userId)) {
-            isAssignedToUser = true; // Task is explicitly assigned to the user
+            isAssignedToUser = true;
         }
 
         if (!isAssignedToUser) {
@@ -89,14 +89,14 @@ public class SubmissionService {
         submission.setStatus(status);
 
         if (status == SubmissionStatus.ACCEPTED) {
-            taskServiceClient.completeTask(submission.getTaskId(), jwt); // Completes task if accepted
+            taskServiceClient.completeTask(submission.getTaskId(), jwt);
         }
 
         return submissionRepository.save(submission);
     }
 
     public List<SubmissionComment> getCommentsBySubmissionId(String submissionId, String jwt) throws Exception {
-        getTaskSubmissionById(submissionId, jwt); // Validate submission exists
+        getTaskSubmissionById(submissionId, jwt);
         return commentRepository.findBySubmissionId(submissionId);
     }
     public Submission updateSubmissionStatus(String submissionId, String status, String jwt) throws Exception {
@@ -113,7 +113,6 @@ public class SubmissionService {
         submission.setStatus(submissionStatus);
         submission = submissionRepository.save(submission);
 
-        // If submission is ACCEPTED, update the task status to DONE
         if (submissionStatus == SubmissionStatus.ACCEPTED) {
             try {
                 taskServiceClient.completeTask(submission.getTaskId(), jwt);

@@ -11,7 +11,7 @@ import java.util.List;
 public class Task {
 
     @Id
-    private String id; // Changed to String to match MongoDB ObjectId
+    private String id;
     private String title;
     private String description;
     private String image;

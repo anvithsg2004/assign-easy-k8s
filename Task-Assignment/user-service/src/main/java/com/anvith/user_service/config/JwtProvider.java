@@ -36,7 +36,7 @@ public class JwtProvider {
                     .getBody();
             return String.valueOf(claims.get("email"));
         } catch (Exception e) {
-            System.err.println("Error parsing JWT: " + e.getMessage()); // Debug log
+            System.err.println("Error parsing JWT: " + e.getMessage());
             throw new IllegalArgumentException("Invalid JWT token", e);
         }
     }

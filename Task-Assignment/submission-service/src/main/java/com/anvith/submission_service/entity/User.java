@@ -9,11 +9,9 @@ public class User {
     private String fullName;
     private String mobile;
 
-    // No-args constructor
     public User() {
     }
 
-    // All-args constructor
     public User(String id, String password, String email, String role, String fullName, String mobile) {
         this.id = id;
         this.password = password;
@@ -22,8 +20,6 @@ public class User {
         this.fullName = fullName;
         this.mobile = mobile;
     }
-
-    // Getters and Setters
 
     public String getId() {
         return id;

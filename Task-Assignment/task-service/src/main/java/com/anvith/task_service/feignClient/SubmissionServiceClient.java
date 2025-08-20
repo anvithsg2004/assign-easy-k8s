@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "submission-service-client", url = "https://submission-service-a04o.onrender.com")
+@FeignClient(name = "SUBMISSION-SERVICE")
 public interface SubmissionServiceClient {
 
     @PostMapping("/api/submission/submit-task")

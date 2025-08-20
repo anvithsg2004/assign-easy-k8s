@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 8082
 
 spring:
   application:
-    name: USER-SERVICE
+    name: SUBMISSION-SERVICE
   data:
     mongodb:
-      uri: mongodb://localhost:27017/USER
+      uri: mongodb://localhost:27017/SUBMISSION
 
 eureka:
   instance:

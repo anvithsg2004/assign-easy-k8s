@@ -36,17 +36,13 @@ public class TaskService {
         if (task.getAssignedUserIds() != null && !task.getAssignedUserIds().isEmpty()) {
             task.setStatus(TaskStatus.ASSIGNED);
         } else {
-            // Decide if tasks open to all should also be ASSIGNED immediately or stay PENDING
-            // For now, let's assume they also become ASSIGNED if you want them submittable right away
             task.setStatus(TaskStatus.ASSIGNED);
-            // Or, if they should require an explicit assignment step later:
-            // task.setStatus(TaskStatus.PENDING);
         }
         task.setCreatedAt(LocalDateTime.now());
         return taskRepository.save(task);
     }
 
-    public Task getTaskById(String id) throws Exception { // Changed Long to String
+    public Task getTaskById(String id) throws Exception {
         return taskRepository.findById(id).orElseThrow(() -> new Exception("Task Not Found with ID: " + id));
     }
 
@@ -54,7 +50,7 @@ public class TaskService {
         if (status != null) {
             return taskRepository.findByStatus(status, pageable);
         }
-        return taskRepository.findAll(pageable); // Return all tasks if no status filter
+        return taskRepository.findAll(pageable);
     }
 
     public Task updateTask(String id, Task updatedTask, String userId) throws Exception {
@@ -121,7 +117,7 @@ public class TaskService {
         if (!assignedUserIds.contains(userId)) {
             assignedUserIds.add(userId);
             task.setAssignedUserIds(assignedUserIds);
-            task.setStatus(TaskStatus.ASSIGNED); // Ensure status is set to ASSIGNED
+            task.setStatus(TaskStatus.ASSIGNED);
             taskHistoryRepository.save(new TaskHistory(taskId, "assignedUserIds",
                     String.join(",", assignedUserIds), String.join(",", assignedUserIds) + "," + userId));
         }
@@ -138,7 +134,7 @@ public class TaskService {
         });
     }
 
-    public Task completeTask(String taskId) throws Exception { // Changed Long to String
+    public Task completeTask(String taskId) throws Exception {
         Task task = getTaskById(taskId);
         task.setStatus(TaskStatus.DONE);
         return taskRepository.save(task);

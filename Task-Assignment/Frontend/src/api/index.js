@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = "https://api-gateway-1wm4.onrender.com";
+const API_BASE_URL = "http://localhost:8085";
 
 const api = axios.create({
   baseURL: API_BASE_URL,

@@ -15,10 +15,8 @@ public class TaskHistory {
     private String newValue;
     private LocalDateTime changedAt;
 
-    // Default constructor
     public TaskHistory() {}
 
-    // Parameterized constructor
     public TaskHistory(String taskId, String fieldChanged, String oldValue, String newValue) {
         this.taskId = taskId;
         this.fieldChanged = fieldChanged;
@@ -27,7 +25,6 @@ public class TaskHistory {
         this.changedAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }

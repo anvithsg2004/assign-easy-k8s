@@ -14,10 +14,8 @@ public class SubmissionComment {
     private String comment;
     private LocalDateTime createdAt;
 
-    // No-arg constructor
     public SubmissionComment() {}
 
-    // Constructor with fields (except id)
     public SubmissionComment(String submissionId, String userId, String comment) {
         this.submissionId = submissionId;
         this.userId = userId;
@@ -25,7 +23,6 @@ public class SubmissionComment {
         this.createdAt = LocalDateTime.now();
     }
 
-    // Getters and setters
     public String getId() {
         return id;
     }
@@ -66,7 +63,6 @@ public class SubmissionComment {
         this.createdAt = createdAt;
     }
 
-    // Optional: for logging/debugging
     @Override
     public String toString() {
         return "SubmissionComment{" +

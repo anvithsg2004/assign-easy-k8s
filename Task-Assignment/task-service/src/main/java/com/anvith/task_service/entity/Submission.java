@@ -4,23 +4,20 @@ import java.time.LocalDateTime;
 
 public class Submission {
 
-    private String id; // Changed from Long to String
+    private String id;
 
     private String taskId;
 
     private String gitHubLink;
 
-    private String userId; // Already String, consistent with User entity's id
+    private String userId;
 
     private SubmissionStatus status = SubmissionStatus.PENDING;
 
     private LocalDateTime submissionTime;
 
-    // No-args constructor
     public Submission() {
     }
-
-    // Getters and Setters
 
     public SubmissionStatus getStatus() {
         return status;

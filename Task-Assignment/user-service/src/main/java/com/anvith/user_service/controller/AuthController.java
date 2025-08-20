@@ -34,7 +34,7 @@ public class AuthController {
     private CustomerUserServiceImplementation userServiceImplementation;
 
     @Autowired
-    private JwtProvider jwtProvider; // Inject JwtProvider instance
+    private JwtProvider jwtProvider;
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws Exception {
@@ -61,7 +61,7 @@ public class AuthController {
         Authentication authentication = new UsernamePasswordAuthenticationToken(email, null);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = jwtProvider.generateToken(authentication); // Use injected instance
+        String token = jwtProvider.generateToken(authentication);
 
         AuthResponse authResponse = new AuthResponse();
         authResponse.setJwt(token);
@@ -79,7 +79,7 @@ public class AuthController {
         Authentication authentication = authenticate(email, password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = jwtProvider.generateToken(authentication); // Use injected instance
+        String token = jwtProvider.generateToken(authentication);
 
         AuthResponse authResponse = new AuthResponse();
         authResponse.setMessage("Login Success");

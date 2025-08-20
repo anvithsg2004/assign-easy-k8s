@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.List;
 
-@FeignClient(name = "user-service-client", url = "https://user-service-hhho.onrender.com")
+@FeignClient(name = "USER-SERVICE")
 public interface UserServiceClient {
 
     @GetMapping("/api/user/profile")

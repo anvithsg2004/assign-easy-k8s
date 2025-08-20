@@ -8,18 +8,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="submission-service" />
         <module name="task-service" />
-        <module name="user-service" />
         <module name="ServiceRegistry" />
+        <module name="user-service" />
         <module name="gatway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ApiGateway" target="17" />
+      <module name="Gradescope_Backend" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGateway" options="-parameters" />
+      <module name="Gradescope_Backend" options="-parameters" />
       <module name="ServiceRegistry" options="-parameters" />
       <module name="gatway" options="-parameters" />
       <module name="submission-service" options="-parameters" />

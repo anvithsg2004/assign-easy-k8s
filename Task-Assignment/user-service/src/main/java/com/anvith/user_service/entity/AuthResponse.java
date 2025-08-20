@@ -6,18 +6,14 @@ public class AuthResponse {
     private String message;
     private Boolean status;
 
-    // No-args constructor
     public AuthResponse() {
     }
 
-    // All-args constructor
     public AuthResponse(String jwt, String message, Boolean status) {
         this.jwt = jwt;
         this.message = message;
         this.status = status;
     }
-
-    // Getters and Setters
 
     public String getJwt() {
         return jwt;
@@ -42,8 +38,6 @@ public class AuthResponse {
     public void setStatus(Boolean status) {
         this.status = status;
     }
-
-    // toString method
 
     @Override
     public String toString() {

@@ -9,9 +9,9 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface TaskRepository extends MongoRepository<Task, String> {
-    List<Task> findByAssignedUserIdsContaining(String userId); // Updated method
+    List<Task> findByAssignedUserIdsContaining(String userId);
     Page<Task> findAll(Pageable pageable);
-    Page<Task> findByAssignedUserIdsContaining(String userId, Pageable pageable); // Updated method
+    Page<Task> findByAssignedUserIdsContaining(String userId, Pageable pageable);
     Page<Task> findByStatus(TaskStatus status, Pageable pageable);
     Page<Task> findByCompletedByUserIdAndStatus(String userId, TaskStatus status, Pageable pageable);
 }

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface SubmissionRepository extends MongoRepository<Submission, String> {
     List<Submission> findByTaskId(String taskId);
-    Page<Submission> findAll(Pageable pageable); // Add pagination
-    Page<Submission> findByTaskId(String taskId, Pageable pageable); // Add pagination
+    Page<Submission> findAll(Pageable pageable);
+    Page<Submission> findByTaskId(String taskId, Pageable pageable);
 }
