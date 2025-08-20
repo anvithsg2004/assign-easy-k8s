@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: USER-SERVICE
+  data:
+    mongodb:
+#      uri: mongodb://localhost:27017/USER
+      uri: mongodb+srv://anvithsg2004:Ani%402004@cluster0.xf9on0f.mongodb.net/USER?retryWrites=true&w=majority&appName=Cluster0&connectTimeoutMS=30000&timeoutMS=30000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: https://service-registry-6oua.onrender.com/eureka/
