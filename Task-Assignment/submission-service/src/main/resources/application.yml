@@ -1,13 +1,12 @@
 server:
-  port: 8082
+  port: ${SUBMISSION_SERVICE_PORT:8082}
 
 spring:
   application:
     name: SUBMISSION-SERVICE
   data:
     mongodb:
-      uri: mongodb://localhost:27017/SUBMISSION
-
+      uri: ${MONGODB_URI_SUBMISSION}
 eureka:
   instance:
     prefer-ip-address: true
@@ -16,4 +15,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}

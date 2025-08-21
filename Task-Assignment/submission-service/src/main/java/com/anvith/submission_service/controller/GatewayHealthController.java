@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GatewayHealthController {
 
-    @GetMapping("/gatewaysub/health")
+    @GetMapping("/gateway/health")
     public String healthCheck() {
         return "API Gateway is up and running!";
     }
