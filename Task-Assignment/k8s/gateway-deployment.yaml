@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-deployment
+  labels:
+    app: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: anvi522acr.azurecr.io/assign-easy-gateway:latest
+          ports:
+            - containerPort: 8085
+          env:
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: "http://service-registry-service:8761/eureka/"
+            - name: API_GATEWAY_PORT
+              value: "8085"
+            - name: CORS_ALLOWED_ORIGIN_PATTERN_0
+              value: "http://localhost:5173"
+            - name: CORS_ALLOWED_ORIGIN_PATTERN_1
+              value: "https://assigniteasy.netlify.app"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-service
+spec:
+  selector:
+    app: gateway
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8085

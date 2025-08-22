@@ -6,7 +6,7 @@ spring:
     name: TASK-SERVICE
   data:
     mongodb:
-      uri: ${MONGODB_URI_TASK}
+      uri: ${MONGODB_URI_TASK:mongodb+srv://anvithsg2004:Ani%402004@cluster0.xf9on0f.mongodb.net/TASK?retryWrites=true&w=majority&appName=Cluster0}
 
 eureka:
   instance:
@@ -14,3 +14,9 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

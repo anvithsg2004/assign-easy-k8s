@@ -21,6 +21,7 @@ public class AppConfig {
                         )
                 ).authorizeRequests(
                         Authorize -> Authorize
+                                .requestMatchers("/actuator/**").permitAll()
                                 .requestMatchers("/api/**")
                                 .authenticated()
                                 .anyRequest()
